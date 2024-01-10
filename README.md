@@ -3,4 +3,4 @@
 
 간단하게 사용하면 빠르게 젠킨스 설치까지 가능
 
-wget https://github.com/AiBiC-Data/JenkinsInstallScript/install.sh
+wget https://github.com/AiBiC-Data/JenkinsInstallScript/blob/main/install.sh
