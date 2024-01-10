@@ -34,7 +34,7 @@ mkdir -p /var/jenkins_home
 #  권한 설정
 chown -R 1000:1000 /var/jenkins_home/
 # 호스트9000:컨테이너8080 매핑/ 포트50000을 통신위해 매핑
-docker run -p 9000:8080 -p 50000:50000 -v /var/jenkins_home:/var/jenkins_home -d --name jenkins jenkins/jenkins:lts
+docker run --restart=on-failure -p 9000:8080 -p 50000:50000 -v /var/jenkins_home:/var/jenkins_home -d --name jenkins jenkins/jenkins:lts
 
 # show endpoint
 echo 'Jenkins installed'
