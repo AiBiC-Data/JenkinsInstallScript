@@ -5,7 +5,7 @@
 sudo apt-get update
 sudo docker run -d \
     -p 9100:9100 \
-    --name grafana \
+    --name node-exporter \
     prom/node-exporter:latest
 sudo docker run -d \
 -p 9090:9090 \
