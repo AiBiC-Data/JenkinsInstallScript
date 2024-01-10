@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Structuring Monitoring System
+
 sudo apt-get update
 sudo docker run -d \
     -p 9100:9100 \
