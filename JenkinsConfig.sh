@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# jenkins 컨테이너 root 패스워드 뭐지?
+# jenkins 컨테이너 root 패스워드 뭐지??
 
 sudo docker exec --user='root' -it jenkins apt-get update
 sudo docker exec --user='root' -it jenkins apt-get install openjdk-17-jdk -y
