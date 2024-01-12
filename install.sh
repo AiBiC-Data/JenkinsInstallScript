@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# tested on ubuntu 22.04 (LTS) by kwonho
+# tested on ubuntu 22.04 (LTS)
 
 # 도커 설치
 
@@ -21,11 +21,11 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update
 sudo apt-get install net-tools
 # 6. Docker 설치
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-# 7. Docker가 설치 확인
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose docker-compose-plugin
+# 7. Docker 실행
 systemctl enable docker
 systemctl start docker
-#sudo systemctl status docker
+#systemctl status docker
 
 # 도커에 젠킨스 올리기
 
@@ -34,7 +34,7 @@ mkdir -p /var/jenkins_home
 #  권한 설정
 chown -R 1000:1000 /var/jenkins_home/
 # 호스트9000:컨테이너8080 매핑/ 포트50000을 통신위해 매핑
-docker run --restart=on-failure -p 9000:8080 -p 50000:50000 -v /var/jenkins_home:/var/jenkins_home -d --name jenkins jenkins/jenkins:lts
+docker run --restart=on-failure --user='root' -p 9000:8080 -p 50000:50000 -v /var/jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -d --name jenkins jenkins/jenkins:lts
 
 # show endpoint
 echo 'Jenkins installed'
