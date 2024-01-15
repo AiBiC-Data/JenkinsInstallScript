@@ -11,9 +11,9 @@ sudo docker exec --user='root' -it jenkins apt-get -y install apt-transport-http
          gnupg-agent \
          software-properties-common && \
 sudo docker exec --user='root' -it jenkins curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo docker exec --user='root' -it jenkins apt-get update && \
-apt-get install docker-ce-cli -y
+apt-get install -y docker-ce docker-ce-cli containerd.io
 
 sudo docker exec -it jenkins bash
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
